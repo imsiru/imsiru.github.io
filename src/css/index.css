@@ -1,0 +1,348 @@
+.intro-text h2 {
+  margin-top: 0.5rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+  font-family: 'MonoplexKR-Regular', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  transform: scaleY(0.95);
+}
+
+/* ✅ 공통 설정 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #fff8cc, #ffffff);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #2c3e50;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+main {
+  padding: 4rem 1rem;
+}
+
+/* ✅ 네비게이션 바 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  background: #e3f6fd;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-family: 'Cafe24Meongi', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.hamburger {
+  cursor: pointer;
+  z-index: 1001;
+  margin-left: auto;         /* ✅ 왼쪽 여백을 밀어서 오른쪽으로 정렬 */
+  justify-content: flex-end; /* ✅ 오른쪽 정렬 */
+}
+
+.lottie-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.0rem;
+}
+
+.menu-button img {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  left: 15px;
+  transform: none;
+  object-fit: contain;
+}
+
+.menu-button:hover,
+.menu-button:focus {
+  background: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: inherit !important;
+}
+
+.menu-panel {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 200px;
+}
+
+.menu-panel a {
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.menu-panel a:hover {
+  background-color: #f8f9fa;
+}
+
+#menuToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+#menuToggle:hover {
+  transform: scale(1.1);
+}
+
+#menuToggle img {
+  width: 2rem;
+  height: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.daily-title {
+  font-family: 'S-CoreDream-6Bold', sans-serif !important;
+  text-align: left;
+  margin-left: 1.5rem; /* ← 원하는 만큼 조절 가능 */
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 1rem 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: 2px solid #c8eafc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button {
+  background: #c8eafc;
+  color: #2c3e50;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: #ffffff;
+}
+
+/* ✅ 인트로 섹션 */
+.intro-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0  2rem;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.intro-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.intro-section {
+  padding-top: 6rem;
+}
+
+.intro-container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  border-radius: 2rem;
+  padding: 0 3rem 3rem 3rem; 
+}
+
+.intro-image {
+  margin: 2rem 0;
+}
+
+.intro-text {
+  font-family: 'S-CoreDream-3Light', sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  margin: 2rem 0;
+}
+
+.intro-text h2 {
+  font-family: 'Cafe24Meongi', sans-serif;
+  font-size: 2rem;
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.dog-specs {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dog-specs th {
+  background: #f8f9fa;
+  padding: 1rem;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.dog-specs td {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.dog-specs th,
+.dog-specs td {
+  font-family: 'S-CoreDream-3Light', sans-serif;
+  font-size: 0.9rem;
+}
+
+.dog-specs tr:last-child th,
+.dog-specs tr:last-child td {
+  border-bottom: none;
+}
+
+.dog-specs th {
+  font-family: 'S-CoreDream-6Bold', sans-serif;
+  color: #2c3e50;
+}
+
+.instagram-section {
+  padding: 0;
+}
+
+.instagram-section h4 {
+  font-family: 'MonoplexKR-Regular', sans-serif;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.instagram-link {
+  display: inline-block;
+}
+
+.instagram-link a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.instagram-link a:hover {
+  transform: scale(1.05);
+}
+
+.instagram-link img {
+  width: 2rem;
+  height: 2rem;
+  filter: brightness(0) invert(1);
+}
+
+.subheading /* 멍멍멍+WELCOME 글씨 */{
+  font-family: 'Moirai One', sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  color: #000000;
+  text-align: center;
+  margin: 0 0 1rem 0;   /* 상:0, 우:0, 하:1rem, 좌:0 */
+  padding: 0;           /* 패딩 전체 제거 */
+}
+
+
+.spacer {
+  height: 2rem;
+}
+
+.intro-banner {
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 2rem 0; /* 위: 0, 아래: 2rem 유지 */
+  padding: 0;         /* 모든 패딩 제거 */
+}
+
+.footer {    
+  padding: 2rem;
+  text-align: center;
+  font-family: 'S-CoreDream-3Light', sans-serif;
+  color: #2c3e50;
+}

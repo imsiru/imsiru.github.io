@@ -1,0 +1,169 @@
+
+.guestbook-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: sans-serif;
+  border-radius: 1rem;
+}
+
+.guestbook-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-icon, .guestbook-icon {
+  font-size: 1.5rem;
+}
+
+.diary-title-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center; /* 가운데 정렬 */
+  margin-bottom: 0.3rem;
+}
+
+.guestbook-title {
+  padding: 1rem 0rem 0rem 0rem;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.guestbook-description {
+  text-align: center;
+  color: #666;
+  padding: 0rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.guestbook-form input,
+.guestbook-form textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.guestbook-form button {
+  padding: 0.5rem;
+  background-color: #D0F0C0;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.guestbook-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.guestbook-entry {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 1.2rem;
+  position: relative;
+}
+
+.guestbook-entry-box {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #eee;
+  position: relative;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.entry-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.entry-meta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.entry-name {
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.entry-date {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.entry-message {
+  margin-top: 0.6rem;
+  margin-bottom: 1.6rem;
+  text-align: center;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.entry-action {
+  margin-left: auto;
+  margin-right: 0; /* 오른쪽에 최대한 붙이기 */
+  padding-right: 0.3rem; /* 조금 여백만 남기기 */
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #a3a3a3;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.delete-btn.confirm {
+  background: #e74c3c;
+  color: white;
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.85rem;
+}
+
+.admin-reset-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.admin-reset {
+  background-color: #dc3545;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}

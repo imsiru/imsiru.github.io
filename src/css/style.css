@@ -1,0 +1,370 @@
+.hidden {
+  display: none !important;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 1rem 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: 2px solid #e9ecef;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* ✅ 인트로 섹션 */
+.intro-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0  2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.intro-section {
+  padding-top: 6rem;
+}
+
+.intro-container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  border-radius: 2rem;
+  padding: 3rem;
+}
+
+.intro-image {
+  margin: 2rem 0;
+}
+
+.intro-text {
+  font-family: 'S-CoreDream-3Light', sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  margin: 2rem 0;
+}
+
+.intro-text h2 {
+  font-family: 'Cafe24Meongi', sans-serif;
+  font-size: 2rem;
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.dog-specs {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dog-specs th {
+  background: #f8f9fa;
+  padding: 1rem;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.dog-specs td {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.dog-specs th,
+.dog-specs td {
+  font-family: 'S-CoreDream-3Light', sans-serif;
+  font-size: 0.9rem;
+}
+
+.dog-specs tr:last-child th,
+.dog-specs tr:last-child td {
+  border-bottom: none;
+}
+
+.dog-specs th {
+  font-family: 'S-CoreDream-6Bold', sans-serif;
+  color: #2c3e50;
+}
+
+.instagram-section {
+  padding: 0;
+}
+
+.instagram-section h4 {
+  font-family: 'MonoplexKR-Regular', sans-serif;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.instagram-link {
+  display: inline-block;
+}
+
+.instagram-link a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.instagram-link a:hover {
+  transform: scale(1.05);
+}
+
+.instagram-link img {
+  width: 2rem;
+  height: 2rem;
+  filter: brightness(0) invert(1);
+}
+
+.spacer {
+  height: 2rem;
+}
+
+.intro-banner {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+}
+
+.footer {    
+  padding: 2rem;
+  text-align: center;
+  font-family: 'S-CoreDream-3Light', sans-serif;
+  color: #2c3e50;
+}
+
+
+
+
+
+.favorite-header h2 {
+  font-family: 'Cafe24Meongi', sans-serif;
+  font-size: 2rem;
+  color: #e74c3c;
+  margin: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 1rem 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: 2px solid #e9ecef;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* ✅ 인트로 섹션 */
+.intro-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0  2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.intro-section {
+  padding-top: 6rem;
+}
+
+.intro-container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  border-radius: 2rem;
+  padding: 3rem;
+}
+
+.intro-image {
+  margin: 2rem 0;
+}
+
+.intro-text {
+  font-family: 'S-CoreDream-3Light', sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  margin: 2rem 0;
+}
+
+.intro-text h2 {
+  font-family: 'Cafe24Meongi', sans-serif;
+  font-size: 2rem;
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.dog-specs {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dog-specs th {
+  background: #f8f9fa;
+  padding: 1rem;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.dog-specs td {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.dog-specs th,
+.dog-specs td {
+  font-family: 'S-CoreDream-3Light', sans-serif;
+  font-size: 0.9rem;
+}
+
+.dog-specs tr:last-child th,
+.dog-specs tr:last-child td {
+  border-bottom: none;
+}
+
+.dog-specs th {
+  font-family: 'S-CoreDream-6Bold', sans-serif;
+  color: #2c3e50;
+}
+
+.instagram-section {
+  padding: 0;
+}
+
+.instagram-section h4 {
+  font-family: 'MonoplexKR-Regular', sans-serif;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.instagram-link {
+  display: inline-block;
+}
+
+.instagram-link a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.instagram-link a:hover {
+  transform: scale(1.05);
+}
+
+.instagram-link img {
+  width: 2rem;
+  height: 2rem;
+  filter: brightness(0) invert(1);
+}
+
+.spacer {
+  height: 2rem;
+}
+
+.intro-banner {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+}
+
+.footer {    
+  padding: 2rem;
+  text-align: center;
+  font-family: 'S-CoreDream-3Light', sans-serif;
+  color: #2c3e50;
+}
