@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "SIRU's personal website - React version",
   "main": "index.js",
-  "homepage": "https://imsiru.github.io/sirupan",
+  "homepage": "https://imsiru.github.io",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
