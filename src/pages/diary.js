@@ -65,7 +65,10 @@ const Diary = () => {
           className={`cal-date ${isToday ? 'today' : ''} ${dayClass}`}
           onClick={() => handleDateClick(dateStr, row)}
         >
-          <div className="date-top">{d}</div>
+          <div className="date-top">
+            {d}
+            {memo && <span className="memo-star">🌟</span>}
+          </div>
           <div
             className="memo-preview"
             dangerouslySetInnerHTML={{

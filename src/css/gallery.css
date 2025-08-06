@@ -1,0 +1,122 @@
+.gallery-page {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.gallery-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.gallery-icon {
+  font-size: 1.5rem;
+}
+
+.gallery-title-card {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.gallery-description {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.gallery-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.gallery-card {
+  background: #f8f8f8; /* 흰색에 가까운 회색 */
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.gallery-card:hover {
+  transform: translateY(-4px);
+}
+
+.gallery-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.gallery-text {
+  padding: 1rem 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+  .gallery-gallery {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .gallery-text {
+    font-size: 0.9rem;
+  }
+}
+
+.gallery-filter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.gallery-filter select {
+  appearance: none;
+  background-color: #fff7f0;
+  border: 2px solid #ffb6c1;
+  border-radius: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-family: 'S-CoreDream-3Light', sans-serif; /* 부드러운 한글체 추천 */
+  color: #ff5d8f;
+  box-shadow: 2px 2px 6px rgba(255, 182, 193, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.gallery-filter select:hover {
+  background-color: #ffe4ec;
+  border-color: #ff85a2;
+  transform: scale(1.05);
+}
+
+.gallery-filter select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 192, 203, 0.4);
+}
+
+.gallery-date {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.3rem;
+  font-family: 'S-CoreDream-3Light', sans-serif;
+  text-align: center;
+}

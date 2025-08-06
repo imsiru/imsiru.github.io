@@ -22,7 +22,7 @@ const favoritesData = [
   { title: '🐶 숀더 쉽', img: fav7, text: '짝 맞춰병에 걸린 언니가 사온 인형<br />시루가 물 수 있는 곳이 많아 아주 좋아해요' },
   { title: '🐶 커피나무 막대기', img: fav8, text: '입질 막기 위한 도구로 산 막대기<br />00쌤 추천 장난감!' },
   { title: '🐶 운동화끈 꽈배기', img: fav9, text: '엄마가 손수 꼬아준 꽈배기' },
-  { title: '🐶 장미 노즈워크', img: fav10, text: '안 속깊숙히 넣은 사료는 못 먹으니<br />화 내지 않게 얕게 넣어주기!' },
+  { title: '🐶 장미 노즈워크', img: fav10, text: '안 속 깊숙히 넣은 사료는 못 먹으니<br />화 내지 않게 얕게 넣어주기!' },
   { title: '🐶 쿠키 노즈워크', img: fav11, text: '바스락 + 사료 = 말티푸타임' },
 ];
 
@@ -48,7 +48,7 @@ const Favorites = () => {
           <div key={index} className={`favorites-card ${bgClasses[index % bgClasses.length]}`}>
             <strong className="favorites-title-card">{item.title}</strong>
             <img src={item.img} alt={item.title} className="favorites-image" />
-            <p
+            <div
               className="favorites-text"
               dangerouslySetInnerHTML={{ __html: item.text }}
             />

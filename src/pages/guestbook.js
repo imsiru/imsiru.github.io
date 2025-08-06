@@ -3,57 +3,97 @@ import '../css/guestbook.css';
 import '../css/font.css';
 import '../css/responsive.css';
 
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+  serverTimestamp
+} from 'firebase/firestore';
+
+// Firebase 설정
+const firebaseConfig = {
+  apiKey: "AIzaSyAcm71bwhgmASa8z8Wk2DN6C3a_NbbknV0",
+  authDomain: "sirupan-guestbook.firebaseapp.com",
+  projectId: "sirupan-guestbook",
+  storageBucket: "sirupan-guestbook.firebasestorage.app",
+  messagingSenderId: "412465451441",
+  appId: "1:412465451441:web:bc7b204b12cb7cc22b6d90",
+  measurementId: "G-JRRQQMRBZ0"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getFirestore(app);
+
+// 날짜 포맷
+const formatDate = (timestamp) => {
+  if (!timestamp) return '...';
+  const date = timestamp.toDate();
+  return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
+};
+
 const Guestbook = () => {
-  const [formData, setFormData] = useState({ name: '', password: '', message: '' });
-  const [entries, setEntries] = useState([]);
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
+  const [password, setPassword] = useState('');
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem('guestbook')) || [];
-    setEntries(saved);
+    const q = query(collection(db, "guestbook"), orderBy("timestamp", "desc"));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const msgList = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setMessages(msgList);
+    });
+    return () => unsubscribe();
   }, []);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, password, message } = formData;
-
-    if (!name.trim() || !password.trim() || !message.trim()) {
-      alert('모든 항목을 입력해주세요!');
+    if (!name.trim() || !message.trim()) {
+      alert("이름과 메시지를 모두 입력해주세요!");
       return;
     }
 
-    const newEntry = {
-      name: name.trim(),
-      password: password.trim(),
-      message: message.trim(),
-      date: new Date().toLocaleString()
-    };
+    try {
+      await addDoc(collection(db, "guestbook"), {
+        name,
+        message,
+        password,
+        timestamp: serverTimestamp()
+      });
 
-    const updated = [newEntry, ...entries];
-    localStorage.setItem('guestbook', JSON.stringify(updated));
-    setEntries(updated);
-    setFormData({ name: '', password: '', message: '' });
-  };
-
-  const confirmPasswordForDelete = (index) => {
-    const confirmPw = prompt('비밀번호를 입력해주세요');
-    if (confirmPw === entries[index].password) {
-      deleteEntry(index);
-      alert('✅ 삭제되었습니다!');
-    } else {
-      alert('❌ 비밀번호가 틀렸습니다!');
+      setName('');
+      setMessage('');
+      setPassword('');
+    } catch (error) {
+      console.error("저장 실패:", error);
+      alert("메시지 저장 실패 😢");
     }
   };
 
-  const deleteEntry = (index) => {
-    const updated = [...entries];
-    updated.splice(index, 1);
-    localStorage.setItem('guestbook', JSON.stringify(updated));
-    setEntries(updated);
+  const handleDelete = async (id, savedPassword) => {
+    const userInput = prompt("메시지를 삭제하려면 비밀번호를 입력하세요:");
+    if (userInput !== savedPassword) {
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
+    try {
+      await deleteDoc(doc(db, "guestbook", id));
+    } catch (error) {
+      console.error("삭제 실패:", error);
+      alert("메시지 삭제 실패 😭");
+    }
   };
 
   return (
@@ -66,55 +106,46 @@ const Guestbook = () => {
 
       <p className="guestbook-description">
         시루에게 따뜻한 메시지를 남겨주세요 💬<br />
-        <small>※ 메시지를 삭제하려면 비밀번호가 필요합니다.</small>
+        <small>※ 메시지 삭제를 원하면 비밀번호를 꼭 입력하세요.</small>
       </p>
 
       <form className="guestbook-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          name="name"
-          placeholder="이름"
-          value={formData.name}
-          onChange={handleChange}
-          required
+          placeholder="이름을 입력하세요"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <textarea
+          placeholder="메시지를 입력하세요"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
         />
         <input
           type="password"
-          name="password"
-          placeholder="4자리 비밀번호"
-          maxLength="4"
-          value={formData.password}
-          onChange={handleChange}
-          required
+          placeholder="삭제용 비밀번호 (선택)"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <textarea
-          name="message"
-          placeholder="시루에게 응원의 한마디!"
-          maxLength="200"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">💌 등록!</button>
+        <button type="submit">메시지 남기기</button>
       </form>
 
-      <div className="guestbook-list">
-        {entries.map((entry, i) => (
-          <div key={i} className="guestbook-entry-box">
-            <div className="entry-top">
-              <div className="entry-meta">
-                <span className="entry-name"><strong>{entry.name}</strong></span>
-                <span className="entry-date">{entry.date}</span>
-              </div>
-              <div className="entry-action">
-                <button className="delete-btn" onClick={() => confirmPasswordForDelete(i)}>
+      <div className="guestbook-messages">
+        {messages.map(msg => (
+          <div key={msg.id} className="guestbook-message">
+            <div className="guestbook-msg-header">
+              <strong>{msg.name}</strong>
+              <span className="meta-right">
+                <span className="msg-timestamp">{formatDate(msg.timestamp)}</span>
+                <button
+                  className="delete-btn"
+                  onClick={() => handleDelete(msg.id, msg.password)}
+                >
                   🗑️
                 </button>
-              </div>
+              </span>
             </div>
-            <p className="entry-message" dangerouslySetInnerHTML={{
-              __html: entry.message.replace(/\n/g, '<br>')
-            }} />
+            <p>{msg.message}</p>
           </div>
         ))}
       </div>

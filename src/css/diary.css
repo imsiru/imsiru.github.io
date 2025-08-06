@@ -105,6 +105,17 @@
   font-weight: bold;
   font-size: 1.1rem;
   color: #000000;
+  position: relative; /* ⭐ 기준 잡기 */
+  display: inline-block;
+  text-align: center;
+}
+
+.memo-star {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -1rem; /* 🌟 오른쪽으로 조금 이동 */
+  font-size: 0.75rem;
 }
 
 /* 일요일, 토요일 날짜 색상 강조 */
@@ -251,4 +262,14 @@
 #monthLabel {
     font-size: 1rem;
   }
+}
+
+.memo-star {
+  font-size: 0.7rem;
+  margin-left: 0.2rem;
+  vertical-align: middle;
+}
+
+.cal-date {
+  position: relative; /* 별 아이콘 위치 기준 */
 }
