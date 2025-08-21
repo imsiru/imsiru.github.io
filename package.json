@@ -29,7 +29,9 @@
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "eslint-plugin-import": "^2.32.0",
+    "gh-pages": "^5.0.0",
+    "source-map-explorer": "^2.5.3"
   },
   "browserslist": {
     "production": [
