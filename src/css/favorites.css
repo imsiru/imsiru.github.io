@@ -1,97 +1,162 @@
-
 .favorites-page {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
-  font-family: 'S-CoreDream-3Light', sans-serif;
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* 🧸 헤더 */
 .favorites-header {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.favorites-title-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
 }
 
 .favorites-icon {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
-.favorites-title-card {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
-  padding: 1rem;
+.favorites-title {
+  font-size: 2.5rem;
+  font-family: 'Tenada', sans-serif;
+  line-height: 1;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,.25);
 }
 
 .favorites-description {
-  text-align: center;
+  margin-top: 0.5rem;
+  padding-bottom: 1rem;
   font-size: 1rem;
   color: #666;
-  margin-bottom: 2rem;
+  font-family: 'S-CoreDream-3Light', sans-serif;
 }
 
+/* 카드 레이아웃 */
 .favorites-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   padding: 0 1rem;
 }
 
+@media (min-width: 1024px) {
+  .favorites-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 2rem;
+  }
+}
+
+/* 카드 */
 .favorites-card {
-  background: #ffffff;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.2s ease;
+  aspect-ratio: 1 / 1;
   display: flex;
   flex-direction: column;
-}
-
-.favorites-card1 { background-color: #fdf0f5; } /* 아주 연한 분홍 */
-.favorites-card2 { background-color: #fff3e0; } /* 아주 연한 주황 */
-.favorites-card3 { background-color: #f7f0fb; } /* 아주 연한 보라 */
-.favorites-card4 { background-color: #f1fdf3; } /* 아주 연한 민트 */
-.favorites-card5 { background-color: #eef7fd; } /* 아주 연한 하늘 */
-
-.favorites-card:hover {
-  transform: translateY(-4px);
-}
-
-
-.favorites-image {
-  max-width: 100%;     /* ✅ 부모 너비를 넘지 않음 */
-  max-height: 200px;   /* ✅ 최대 높이 제한 (원하는 값으로 조절 가능) */
-  width: auto;         /* ✅ 비율 유지 */
-  height: auto;        /* ✅ 비율 유지 */
-  object-fit: contain; /* ✅ 전체 이미지가 잘리지 않고 다 보이게 */
-  display: block;
-  margin: 0 auto;      /* ✅ 가운데 정렬 */
-}
-
-
-.favorites-caption {
+  align-items: center;
   padding: 1rem;
-  text-align: center;
-  font-size: 0.95rem;
-  color: #333;
+  gap: 0.5rem;
+
+  justify-content: space-between;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
 }
 
-.favorites-caption strong {
-  font-size: 1.1rem;
-  color: #1d4032;
+.favorites-card.show {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 카드 배경 색상 */
+.favorites-card1 { background-color: #fdf0f5; }
+.favorites-card2 { background-color: #fff3e0; }
+.favorites-card3 { background-color: #f7f0fb; }
+.favorites-card4 { background-color: #f1fdf3; }
+.favorites-card5 { background-color: #eef7fd; }
+
+/* 이미지 */
+.favorites-image {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
   display: block;
-  margin-bottom: 0.3rem;
+  margin: 0 auto;
 }
 
-/* 반응형 */
+/* 제목 */
+.favorites-title-card {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1d4032;
+  text-align: center;
+}
+
+/* 설명 */
+.favorites-description-card {
+  font-size: 0.9rem;
+  color: #444;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 0.5rem;
+  max-height: 3.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+/* 📱 모바일 반응형 스타일 */
 @media (max-width: 600px) {
+  .favorites-page {
+    padding: 5rem 1rem;
+  }
+  
+  .favorites-title {
+    font-size: clamp(1.8rem, 6vw, 2.3rem);
+  }
+  
   .favorites-gallery {
-    grid-template-columns: 1fr;
-    padding: 0;
+    padding: 0 0.5rem;
+    gap: clamp(0.5rem, 2vw, 1.5rem);
+  }
+  
+  .favorites-card {
+    padding: clamp(0.5rem, 2vw, 1rem);
+  }
+  
+  .favorites-title-card {
+    margin-top: 0.5rem;
+    font-size: clamp(1.5rem, 3vw, 1.8rem);
   }
 
-  .favorites-caption {
-    font-size: 0.9rem;
+  .favorites-description-card {
+    margin-bottom: 0.8rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  }
+  
+  .favorites-icon {
+    font-size: clamp(1.5rem, 4vw, 1.6rem);
+  }
+  
+  .favorites-description {
+    font-size: clamp(0.8rem, 3vw, 1rem);
   }
 }
