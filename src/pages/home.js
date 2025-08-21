@@ -42,7 +42,7 @@ const Home = () => {
     { month: '25.08.20', weight: 2.3 },
   ];
 
-  // ✅ 교체용 WeightChart
+  // ✅ WeightChart (분홍 테마 적용)
   const WeightChart = () => {
     const containerRef = useRef(null);
     const [size, setSize] = useState({ width: 800, height: 500 });
@@ -100,7 +100,7 @@ const Home = () => {
     return (
       <div className="popup-overlay" onClick={() => setShowWeightChart(false)}>
         <div
-          className="popup popup-wide"
+          className="popup popup-wide pink-theme"
           onClick={(e) => e.stopPropagation()}
           ref={containerRef}
         >
@@ -112,7 +112,7 @@ const Home = () => {
             ✕
           </button>
 
-          <h3 className="popup-title">🐕 시루&apos;s 무게 변화</h3>
+          <h3 className="popup-title"> 🦴시루 살 찌는 중🍖</h3>
 
           <div className="popup-chart-container">
             <svg
@@ -127,14 +127,14 @@ const Home = () => {
                 y1={size.height - paddingBottom}
                 x2={size.width - paddingRight}
                 y2={size.height - paddingBottom}
-                stroke="#ddd"
+                stroke="#f5c2d8"
               />
               <line
                 x1={paddingLeft}
                 y1={paddingTop}
                 x2={paddingLeft}
                 y2={size.height - paddingBottom}
-                stroke="#ddd"
+                stroke="#f5c2d8"
               />
 
               {/* Y 그리드 & 라벨 */}
@@ -147,13 +147,13 @@ const Home = () => {
                       y1={y}
                       x2={size.width - paddingRight}
                       y2={y}
-                      stroke="#f0f0f0"
+                      stroke="#fde2e8"
                     />
                     <text
                       x={paddingLeft - 10}
                       y={y + 4}
                       fontSize="11"
-                      fill="#666"
+                      fill="#f28cb0"  
                       textAnchor="end"
                     >
                       {w.toFixed(1)}
@@ -173,7 +173,7 @@ const Home = () => {
                     x={x}
                     y={labelY}
                     fontSize="10"
-                    fill="#666"
+                    fill="#f28cb0" 
                     textAnchor="middle"
                   >
                     <tspan x={x} dy="0">
@@ -190,7 +190,7 @@ const Home = () => {
               <polyline
                 points={linePoints}
                 fill="none"
-                stroke="#ffa500"
+                stroke="#ff69b4"
                 strokeWidth="3"
                 strokeLinejoin="round"
                 strokeLinecap="round"
@@ -206,8 +206,8 @@ const Home = () => {
                       cx={x}
                       cy={y}
                       r={5}
-                      fill="#ffa500"
-                      stroke="#fff"
+                      fill="#ffb6c1"     
+                      stroke="#f28cb0" 
                       strokeWidth="2"
                     />
                     {i > 0 && (
@@ -215,7 +215,7 @@ const Home = () => {
                         x={x}
                         y={y - 10}
                         fontSize="10"
-                        fill="#444"
+                        fill="#f28cb0" 
                         textAnchor="middle"
                         style={{ pointerEvents: 'none' }}
                       >
@@ -280,7 +280,8 @@ const Home = () => {
       <section className="page intro-section section-2 section2-fixed">
         <div className="sec2-grid">
           <h3 className="dog-profile-title sec2-title">
-            🐕 안시루 스펙.zip</h3>
+            🐕 안시루 스펙.zip
+          </h3>
 
           <div className="sec2-specs">
             <table
@@ -309,27 +310,20 @@ const Home = () => {
                   <td>10 cm</td>
                 </tr>
                 <tr>
-                  <th>몸무게</th>
-                  <td>
-                    <span
-                      style={{
-                        marginLeft: '8px',
-                        cursor: 'pointer',
-                        fontSize: '1.2rem',
-                      }}
-                      onClick={() => setShowWeightChart(true)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) =>
-                        e.key === 'Enter' && setShowWeightChart(true)
-                      }
-                      aria-label="Show weight chart"
-                    >
-                      ⚖️
-                    </span>
-                    1.93 kg
-                  </td>
-                </tr>
+  <th>몸무게</th>
+  <td className="weight-cell">
+    <div className="weight-wrapper">
+      <button
+        className="weight-btn"
+        onClick={() => setShowWeightChart(true)}
+        aria-label="Show weight chart"
+      >
+        <span>⚖️</span> 몰래보기
+      </button>
+      <span className="weight-value">2.3 kg</span>
+    </div>
+  </td>
+</tr>
                 <tr>
                   <th>탄생일</th>
                   <td>2025.02.08</td>
