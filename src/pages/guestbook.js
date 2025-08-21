@@ -99,9 +99,10 @@ const Guestbook = () => {
   return (
     <main className="guestbook-page">
       <div className="guestbook-header">
-        <div className="diary-title-line"></div>
-        <span className="guestbook-icon">📖</span>
-        <h2 className="guestbook-title">GUEST BOOK</h2>
+        <div className="guestbook-title-line">
+          <span className="guestbook-icon">📖</span>
+          <h2 className="guestbook-title">GUEST BOOK</h2>
+        </div>
       </div>
 
       <p className="guestbook-description">
@@ -109,27 +110,31 @@ const Guestbook = () => {
         <small>※ 메시지 삭제를 원하면 비밀번호를 꼭 입력하세요.</small>
       </p>
 
-      <form className="guestbook-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="이름을 입력하세요"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <textarea
-          placeholder="메시지를 입력하세요"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="삭제용 비밀번호 (선택)"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">메시지 남기기</button>
-      </form>
+      {/* 입력 카드 */}
+      <div className="guestbook-form-card">
+        <form className="guestbook-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="👤 이름을 입력하세요"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <textarea
+            placeholder="✍️ 메시지를 입력하세요"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="🔒 삭제용 비밀번호 (선택)"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">📬 메시지 남기기</button>
+        </form>
+      </div>
 
+      {/* 메시지 카드 목록 */}
       <div className="guestbook-messages">
         {messages.map(msg => (
           <div key={msg.id} className="guestbook-message">
