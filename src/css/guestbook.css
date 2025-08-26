@@ -131,10 +131,11 @@
 .delete-btn {
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #aaa;
   cursor: pointer;
   transition: color 0.2s ease;
+  padding: 2px;
 }
 
 .delete-btn:hover {
@@ -152,7 +153,7 @@
 /* 📱 모바일 반응형 스타일 */
 @media (max-width: 600px) {
   .guestbook-page {
-    padding: 5rem clamp(0.5rem, 3vw, 1rem);
+    padding: 5rem clamp(2rem, 3vw, 2.3rem);
   }
   
   .guestbook-title {
@@ -194,5 +195,7 @@
   
   .guestbook-message p {
     font-size: clamp(0.8rem, 3vw, 0.9rem);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 }
