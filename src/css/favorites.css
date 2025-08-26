@@ -65,7 +65,7 @@
   gap: 0.5rem;
 
   justify-content: space-between;
-  border-radius: 1rem;
+  border-radius: 3rem;
   background: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -135,7 +135,7 @@
   
   .favorites-gallery {
     padding: 0 0.5rem;
-    gap: clamp(0.5rem, 2vw, 1.5rem);
+    gap: clamp(1.5em, 2vw, 2rem);
   }
   
   .favorites-card {

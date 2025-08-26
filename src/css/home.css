@@ -217,7 +217,15 @@ html,body{
   margin-inline:auto;
 }
 .sec2-misc{ display:flex; flex-direction:column; align-items:center; gap:12px; }
-.siru-speech-bubble{ position:relative; display:block; background:#fff; border-radius:999px; padding:.7rem 1.6rem; font-size:1rem; box-shadow:0 6px 18px rgba(0,0,0,.08); }
+.siru-speech-bubble{ position:relative; display:block; background:#fff; border-radius:999px; padding:.7rem 1.6rem; font-size:1rem; box-shadow:0 6px 18px rgba(0,0,0,.08);   animation: floatY 2.4s ease-in-out infinite;
+  will-change: transform;   /* 성능 tip */}
+@keyframes floatY{
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); } /* 위로 6px */
+  100% { transform: translateY(0); }
+}
+
+
 .siru-speech-bubble::after{ content:""; position:absolute; bottom:-12px; left:50px; border-left:12px solid transparent; border-right:12px solid transparent; border-top:12px solid #fff; }
 .instagram-link-new a{ display:inline-flex; align-items:center; gap:.5rem; padding:.55rem 1.1rem; border-radius:12px; background:rgba(255,255,255,.65); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.3); color:#2c3e50; font-weight:700; text-decoration:none; box-shadow:0 4px 12px rgba(0,0,0,.08); transition:all .2s; }
 .instagram-link-new a:hover{ background:rgba(255,255,255,.85); transform:translateY(-2px); }
@@ -239,13 +247,63 @@ html,body{
 .popup-overlay{ position:fixed; inset:0; background:rgba(0,0,0,.3); display:flex; align-items:center; justify-content:center; z-index:1000; }
 .pink-theme{ background:#fff0f6; border:1px solid #f5c2d8; box-shadow:0 4px 12px rgba(255,105,180,.2); border-radius:16px; }
 .popup, .popup.popup-wide{
-  width:min(1100px, 70%); min-width:320px; max-width:1100px; height:min(640px, 56vh);
-  display:flex; flex-direction:column; overflow:hidden; position:relative;
+  /* 가로는 꽉 차되 최대 1100 */
+  width: clamp(380px, 92svw, 1100px);
+
+  /* 세로를 확 키움: 최소 480px, 보통 78vh 수준 */
+  height: clamp(480px, 78svh, 860px);
+
+  /* URL바 유무와 상관없이 더 넉넉하게 (지원 브라우저에서) */
+  max-height: 86lvh;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  position: relative;
+  border-radius: 16px;
 }
-.popup-title{ text-align:center; font-weight:700; font-size:clamp(1rem,4vw,1.5rem); margin:0; position:absolute; top:1rem; left:50%; transform:translateX(-50%); color:#e07b91; }
-.popup-close{ position:absolute; top:.6rem; right:.6rem; border:0; background:transparent; font-size:1.1rem; cursor:pointer; }
-.popup-chart-container{ display:flex; align-items:center; width:100%; padding:8px 20px 18px; height:100%; }
-.popup-chart-container svg{ margin-left:-5%; width:100%; height:100%; }
+
+.popup-title{ 
+  text-align:center; 
+  font-weight:700; 
+  font-size:clamp(1rem,4vw,1.5rem); 
+  width: 100%;
+  margin:0; 
+  position:absolute; 
+  top:1rem;
+  left:50%; 
+  transform:translateX(-50%); 
+  color:#e07b91; 
+  padding: 0.5rem;
+}
+
+.popup-close{
+  margin-top: 0.5rem;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 3;            /* ← 버튼을 최상단으로 */
+  pointer-events: auto;  /* 혹시 상속값이 막고 있어도 강제 허용 */
+}
+
+.popup-chart-container{ 
+  display:flex; 
+  align-items:center; 
+  width:100%; 
+  height:100%; 
+  padding-top: 8%;
+}
+
+.popup-chart-container svg{
+  margin-left:-5%;
+  width:100%; 
+  height:100%; 
+}
 
 /* ===================== Desktop tuning ===================== */
 @media (min-width:1024px){
@@ -287,6 +345,16 @@ html,body{
     max-height: 50dvh; /* 더 붙이고 싶으면 45dvh */
   }
 
+    .popup, .popup.popup-wide{
+    height: clamp(300px, 78dvh, 880px);
+    max-height: 88lvh;
+  }
+
+  
+.popup-chart-container svg{
+  padding-top: 10%;
+}
+
   /* Slide2 가로 중앙 보정 */
   .section-2{
     min-height:calc(100dvh - var(--nav-h));
@@ -326,4 +394,3 @@ html,body{
 @media (prefers-reduced-motion: reduce){
   .siru-speech-bubble{ animation:none !important; }
 }
-

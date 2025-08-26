@@ -169,7 +169,7 @@
 
 .gallery-text{
   font-size: 0.93rem;  /* 텍스트만 살짝 줄임 */
-  color: #444;
+  color: #4f4d4d;
   text-align: center;
   line-height: 1.6;
 }
@@ -192,6 +192,7 @@
   .gallery-filter {
     gap: clamp(0.5rem, 2vw, 0.8rem);
     margin: clamp(0.5rem, 2vw, 1rem) 0;
+    padding-bottom: 1rem;
   }
   
   .gallery-filter select {
@@ -216,7 +217,7 @@
   
   .gallery-text { 
     margin-bottom: 0.3rem;
-    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
   }
   .gallery-title-card {
     margin-top: 0.5rem;

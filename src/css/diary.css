@@ -244,6 +244,20 @@
   z-index: 2100;
 }
 
+.popup,
+.popup.popup-wide{
+  width: clamp(320px, 80vw, 1100px);
+  height: clamp(360px, 64vh, 720px); /* 화면에 맞춰 유연하게 */
+  display: grid;
+  grid-template-rows: auto 1fr;      /* 1) 제목 높이  2) 그래프 영역 */
+  overflow: hidden;                   /* 내부 스크롤바 제거 */
+  border-radius:16px;                 /* 기존 스타일 유지 */
+}
+
+:root{
+  --popup-title-h: 48px; /* 제목 실제 크기에 맞춰 조절 */
+}
+
 /* 팝업 안 내용 중앙 배치 */
 .popup-content {
   display: flex;
