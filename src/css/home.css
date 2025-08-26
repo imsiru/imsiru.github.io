@@ -88,7 +88,7 @@ html,body{
   grid-template-rows: minmax(0,1fr) auto minmax(0,1fr); /* 위 1fr | 사진 auto | 아래 1fr */
   align-items: center;
   min-height: 100dvh;
-  padding: 0 16px;
+  padding: 2rem 16px;
   justify-content: center;
   /* row-gap은 쓰지 않는 게 중앙 고정에 더 안전 */
 }

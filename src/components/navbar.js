@@ -8,9 +8,9 @@ const Navbar = () => {
   const [dayCount, setDayCount] = useState(0);
   const menuRef = useRef(null);
 
-  // 날짜 계산
+  // 날짜 계산popup-content
   useEffect(() => {
-    const targetDate = new Date('2025-07-08');
+    const targetDate = new Date('2025-02-07');
     const today = new Date();
     targetDate.setHours(0, 0, 0, 0);
     today.setHours(0, 0, 0, 0);
@@ -72,10 +72,31 @@ const Navbar = () => {
       <nav className="navbar">
         <Link to="/" className="logo" onClick={handleNavClick}>SIRUPAN O+{dayCount}</Link>
         <div className="hamburger">
-          <button className="menu-button" onClick={toggleMenu} aria-label="메뉴 열기">
-            <img src={menuIcon} alt="메뉴 버튼" />
-          </button>
-        </div>
+    <button
+      className="menu-button"
+      onClick={toggleMenu}
+      aria-label="메뉴 열기"
+      style={{
+        display: 'inline-flex',
+        width: 'auto',         // 터치 타깃
+        height: 43,        // 터치 타깃
+        padding: 0,
+        border: 'none',
+        background: 'transparent',
+        cursor: 'pointer',
+      }}
+    >
+      <img
+        src={menuIcon}
+        alt="메뉴 버튼"
+        style={{
+          justifyContent: 'right',
+          height: 40,      // ← 높이만 고정
+          width: 'auto',   // ← 너비는 이미지 비율대로 자동
+          display: 'block' // 인라인 이미지 여백 제거
+        }}
+      />
+    </button>        </div>
       </nav>
 
       {isMenuOpen && (

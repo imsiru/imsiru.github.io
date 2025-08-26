@@ -59,7 +59,7 @@ export default function SirupanHomeSwiper() {
   const weightData = [
     { month: "25.02.08", weight: 0.5 },
     { month: "25.07.08", weight: 1.53 },
-    { month: "25.07.10", weight: 1.6 },
+    { month: "25.07.10", weight: 1.6 }, 
     { month: "25.07.25", weight: 1.9 },
     { month: "25.08.07", weight: 2.1 },
     { month: "25.08.20", weight: 2.3 },
