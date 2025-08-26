@@ -132,7 +132,9 @@ const Diary = () => {
       {isPopupOpen && selectedDate && (
         <div className="popup-overlay" onClick={() => setIsPopupOpen(false)}>
           <div className="popup" onClick={(e) => e.stopPropagation()}>
-            <button className="popup-close" onClick={() => setIsPopupOpen(false)}>
+            <button className="popup-close" type="button"
+              aria-label="닫기"
+              onClick={(e) => { e.stopPropagation(); setIsPopupOpen(false); }}>
               ❌
             </button>
             <div className="popup-content">

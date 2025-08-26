@@ -186,9 +186,17 @@
 
 /* 팝업 속 글씨 스타일 */
 .popup-date {
-  font-family: 'S-CoreDream-3Light', system-ui;
-  color: #2c3e50;
+  font-family: 'Ownglyph_ryurue-Rg', sans-serif;
   font-size: 1rem;
+  margin-bottom: 0.3rem;
+  width: 100%;
+  text-align: left;   /* 왼쪽 정렬 */
+  margin: 0;          /* 필요 시 간격 조정 */
+  font-size: 0.9rem;
+  color: #555;
+  position: absolute; /* 팝업 안에서 고정 위치 */
+  top: 1rem;          /* X 버튼과 같은 라인 */
+  left: 1rem;
 }
 
 .popup-memo {
@@ -196,12 +204,14 @@
   font-size: 2rem;
   color: #252525;
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .popup-extra {
   font-family: 'Ownglyph_ryurue-Rg', sans-serif;
   font-size: 1.5rem;
   color: #666;
+  margin-top: 0; 
 }
 
 /* ✅ 팝업 관련 스타일 (global 영역) */
@@ -224,7 +234,7 @@
   padding: 2rem;
   max-width: 350px;
   width: 90%;
-  max-height: 60vh;
+  max-height: 20vh;
   overflow-y: auto;
   position: relative;
   text-align: center;  /* 글씨 중앙 정렬 */
@@ -243,6 +253,7 @@
   width: 100%;
   height: 100%;
   text-align: center;
+  margin: 0;
 }
 
 .popup-close {
@@ -319,27 +330,27 @@
   }
 
   .popup {
-    max-width: 350px;   /* 크기 줄이기 */
-    width: 80%;
-    max-height: 30vh;   /* 세로도 줄임 */
+    width: 80vw;       /* 화면 가로폭의 80% (vw 단위 권장) */
+    max-width: none;   /* 고정 폭 제한 제거 */
+    max-height: 20vh;  /* 필요에 맞게 */
+    padding: 1rem;     /* 패딩 줄이면 체감 크기도 줄어듦 */
   }
 
   .popup-date {
-    font-family: 'S-CoreDream-3Light', system-ui;
-    color: #2c3e50;
-    font-size: clamp(0.8rem, 3vw, 0.9rem);
+    color: #606264;
+    font-size: clamp(1rem, 3vw, 1.2rem);
   }
 
   .popup-memo {
     font-family: 'Ownglyph_ryurue-Rg', sans-serif;
-    font-size: clamp(1.2rem, 5vw, 1.5rem);
+    font-size: clamp(1.8rem, 5vw, 2.1rem);
     color: #252525;
     font-weight: bold;
   }
 
   .popup-extra {
     font-family: 'Ownglyph_ryurue-Rg', sans-serif;
-    font-size: clamp(1rem, 4vw, 1.2rem);
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
     color: #666;
   }
 }
