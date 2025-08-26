@@ -14,6 +14,7 @@ import fav11 from '../images/fav/11.png';
 import fav12 from '../images/fav/12.png'; 
 import fav13 from '../images/fav/13.png'; 
 import fav14 from '../images/fav/14.png'; 
+import fav15 from '../images/fav/15.png'; 
 
 const favoritesData = [
   { title: '✨ 형광이 ✨', img: fav1, text: '누더기 아님 주의!<br />시루의 첫 장난감.' },
@@ -30,6 +31,7 @@ const favoritesData = [
   { title: '⚖️ 밸런스 디스크 🧘‍♂️', img: fav12, text: '슬개골 건강을 위하여!<br />흔들흔들 잘 올라가 있어요', scale: 0.9 },
   { title: '🍼 혤 언니가 준 턱받이 🎀', img: fav13, text: '체리로 터그 놀이 하다가 뜯어질 뻔한 건 비밀!' },
   { title: '🫧 펄 언니가 준 펄 이름표 🐾', img: fav14, text: '산책 나갈 때 필수템!', scale: 0.9 },
+  { title: '🐊 아빠가 사온 악어 인형 🐊', img: fav15, text: '시루 몸통만큼 크지만 잘 가지고 놀아요', scale: 0.9 },
 ];
 
 const bgClasses = [

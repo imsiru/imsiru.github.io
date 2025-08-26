@@ -40,6 +40,9 @@ const imageFiles = [
   { file: '250818.jpg',   title: '언니1 뭐해 🤔',          text: '컨셉샷 찍는동안 얌전히 기다리는 중' },
   { file: '250818_1.jpg', title: '납짝쿵 🫓',             text: '시루_이름이_쿵이가_될뻔한_이유.png' },
   { file: '250819.jpg',   title: '납짝쿵2 🍑',            text: '통통하게 살 오른 옹동이' },
+  { file: '250820.jpg',   title: '가방안시루 👜',          text: '산책 10분하고 더워서 카페로 피신' },
+  { file: '250823.jpg', title: '무아지경 🤩',             text: '새로운 장난감은 늘 짜릿해' },
+  { file: '250824.jpg',   title: '간식 주세오 🍪',            text: '귀여운 앙 다문 입술' },
 ];
 const galleryData = imageFiles.map(({ file, title, text }) => {
   const raw = file.slice(0, 6);
